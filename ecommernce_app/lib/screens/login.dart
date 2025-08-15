@@ -13,7 +13,7 @@ class _loginState extends State<login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.black,
+        color: Colors.blue,
         height: double.infinity,
         child: SafeArea(
           child: ListView(
