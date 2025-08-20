@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommernce_app/screens/productscreen.dart';
 
 class homescreen extends StatefulWidget {
   const homescreen({super.key});
@@ -221,78 +222,99 @@ class _HomeScreenState extends State<homescreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: images.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 160,
-                    margin: EdgeInsets.only(right: 15),
-                    child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Product Image
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              width: double.infinity,
-                              child: Image.asset(
-                                images[index],
-                                fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      final double computedPrice =
+                          ((index + 1) * 10).toDouble();
+                      final double computedRating = double.parse(
+                        '4.${(index % 5) + 1}',
+                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (_) => ProductScreen(
+                                title: 'Product ${index + 1}',
+                                imagePath: images[index],
+                                price: computedPrice,
+                                rating: computedRating,
+                              ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 160,
+                      margin: EdgeInsets.only(right: 15),
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Product Image
+                            Expanded(
+                              flex: 3,
+                              child: Container(
+                                width: double.infinity,
+                                child: Image.asset(
+                                  images[index],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          // Product Info
-                          Expanded(
-                            flex: 2,
-                            child: Padding(
-                              padding: EdgeInsets.all(12),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Product ${index + 1}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.star,
-                                        size: 16,
-                                        color: Colors.amber,
+                            // Product Info
+                            Expanded(
+                              flex: 2,
+                              child: Padding(
+                                padding: EdgeInsets.all(12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Product ${index + 1}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
                                       ),
-                                      SizedBox(width: 4),
-                                      Text(
-                                        '4.${(index % 5) + 1}',
-                                        style: TextStyle(
-                                          color: Colors.grey[600],
-                                          fontSize: 12,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    SizedBox(height: 4),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 4),
-                                  Text(
-                                    '\$${(index + 1) * 10}',
-                                    style: TextStyle(
-                                      color: Colors.redAccent,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
+                                        SizedBox(width: 4),
+                                        Text(
+                                          '4.${(index % 5) + 1}',
+                                          style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(height: 4),
+                                    Text(
+                                      '\$${(index + 1) * 10}',
+                                      style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -328,14 +350,72 @@ class _HomeScreenState extends State<homescreen> {
                 ),
                 itemCount: images.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                  return GestureDetector(
+                    onTap: () {
+                      final double computedPrice =
+                          ((index + 1) * 10).toDouble();
+                      final double computedRating = double.parse(
+                        '4.${(index % 5) + 1}',
+                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (_) => ProductScreen(
+                                title: 'Product ${index + 1}',
+                                imagePath: images[index],
+                                price: computedPrice,
+                                rating: computedRating,
+                              ),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                images[index],
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Product ${index + 1}',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '\$${(index + 1) * 10}',
+                                    style: TextStyle(
+                                      color: Colors.redAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Image.asset(images[index], fit: BoxFit.cover),
                     ),
                   );
                 },
