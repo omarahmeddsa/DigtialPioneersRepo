@@ -164,7 +164,7 @@ class _HomeScreenState extends State<homescreen> {
                   ),
                   ListTile(
                     leading: Icon(Icons.logout, color: Colors.redAccent),
-                    title: Text('Logout'),
+                    title: Text('sign out'),
                     onTap: () {
                       Navigator.pushReplacementNamed(context, 'login');
                     },
