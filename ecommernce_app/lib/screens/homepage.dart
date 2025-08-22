@@ -35,7 +35,7 @@ class _HomeScreenState extends State<homescreen> {
         child: Icon(Icons.qr_code, color: Colors.white),
         onPressed: () {
           // Action for the floating action button
-          print('Floating Action Button Press');
+          print('Floating Action Button Pressed');
         },
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar(
