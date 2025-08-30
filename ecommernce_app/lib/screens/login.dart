@@ -19,7 +19,7 @@ class _loginState extends State<login> {
           child: ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100, left: 20, right: 20),
+                padding: const EdgeInsets.only(top: 150, left: 20, right: 20),
                 child: Image.asset('assets/logoimg.jpeg'),
               ),
               Center(
